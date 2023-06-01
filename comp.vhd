@@ -17,7 +17,6 @@ end compara_dado;
 
 architecture a1 of compara_dado is
 signal reg_padrao: std_logic_vector(7 downto 0):=(others=>'0');
-signal en: std_logic:='0';
 signal comparador: std_logic:='0';
   
 begin
