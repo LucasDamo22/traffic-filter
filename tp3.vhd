@@ -26,7 +26,7 @@ end entity;
 -- Arquitetura
 --------------------------------------
 architecture tp3 of tp3 is
-  type state is (idle, registrando_padroes, buscando, blocked, resetting);
+  type state is (idle, registrando_padroes_0,registrando_padroes_1,registrando_padroes_2,registrando_padroes_3, buscando, blocked, resetting);
   signal EA, PE: state;
   signal alarme_int, found: std_logic;
   signal data: std_logic_vector(7 downto 0);
@@ -85,23 +85,23 @@ begin
     );
   -- found   <=  . . . 
 
-  program(0) <= '1' when (EA = registrando_padroes and prog = "001") else '0';
-  program(1) <= '1' when (EA = registrando_padroes and prog = "010") else '0';
-  program(2) <= '1' when (EA = registrando_padroes and prog = "011") else '0';
-  program(3) <= '1' when (EA = registrando_padroes and prog = "100") else '0';
+  program(0) <= '1' when EA = registrando_padroes_0 else '0';
+  program(1) <= '1' when EA = registrando_padroes_1 else '0';
+  program(2) <= '1' when EA = registrando_padroes_2 else '0';
+  program(3) <= '1' when EA = registrando_padroes_3 else '0';
   
   --  registradores para ativar as comparações
   process(clock, reset, EA) begin
     if reset = '1' then
       sel(0)<= '0';
     elsif rising_edge(clock) then
-      if EA = registrando_padroes and prog = "001" then
+      if EA = registrando_padroes_0 then
         sel(0)<='1';
-      elsif EA = registrando_padroes and prog = "010" then
+      elsif EA = registrando_padroes_1  then
         sel(1)<='1';
-      elsif EA = registrando_padroes and prog = "011" then
+      elsif EA = registrando_padroes_2 then
        sel(2)<='1';
-      elsif EA = registrando_padroes and prog = "100" then
+      elsif EA = registrando_padroes_3 then
        sel(3)<='1';
       end if;
     end if;
@@ -127,14 +127,29 @@ begin
         when idle =>
             if prog = "101" then
                 PE <= buscando;
-            elsif prog = "001" or prog = "010" or prog = "011" or prog = "100" then
-                PE <= registrando_padroes;
+            elsif prog = "001" then
+              PE <= registrando_padroes_0;
+            elsif prog = "010" then
+              PE <= registrando_padroes_1;
+            elsif prog = "011" then
+              PE <= registrando_padroes_2;
+            elsif prog = "100" then
+              PE <= registrando_padroes_3;
             else
                 PE <= EA;
             end if;
 ---------------------------------------------------------------------            
-        when registrando_padroes =>
+        when registrando_padroes_0 =>
             PE <=idle;
+---------------------------------------------------------------------
+        when registrando_padroes_1 =>
+        PE <=idle;
+---------------------------------------------------------------------
+        when registrando_padroes_2 =>
+        PE <=idle;
+---------------------------------------------------------------------
+        when registrando_padroes_3 =>
+        PE <=idle;
 ---------------------------------------------------------------------
         when buscando =>
             if prog = "111" then

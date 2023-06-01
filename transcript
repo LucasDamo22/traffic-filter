@@ -1181,3 +1181,267 @@ do sim.do
 # This port will contribute value (2'hX) to the signal network.
 # 1
 # 1
+do sim.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is lucas.damo@gaphs17.portoalegre.pucrsnet.br.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim SE-64 vmap 2021.3 Lib Mapping Utility 2021.07 Jul 13 2021
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:28:28 on Jun 01,2023
+# vcom -reportprogress 300 -work work comp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity compara_dado
+# -- Compiling architecture a1 of compara_dado
+# End time: 16:28:28 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:28:28 on Jun 01,2023
+# vcom -reportprogress 300 -work work tp3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tp3
+# -- Compiling architecture tp3 of tp3
+# -- Loading entity compara_dado
+# ** Error: tp3.vhd(88): near "else": (vcom-1576) expecting END.
+# ** Note: tp3.vhd(88): VHDL Compiler exiting
+# End time: 16:28:29 on Jun 01,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: /soft64/mentor/ferramentas/modelsim/2021/linux_x86_64/vcom failed.
+# Error in macro ./sim.do line 6
+# /soft64/mentor/ferramentas/modelsim/2021/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -work work tp3.vhd"
+do sim.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is lucas.damo@gaphs17.portoalegre.pucrsnet.br.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim SE-64 vmap 2021.3 Lib Mapping Utility 2021.07 Jul 13 2021
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:28:45 on Jun 01,2023
+# vcom -reportprogress 300 -work work comp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity compara_dado
+# -- Compiling architecture a1 of compara_dado
+# End time: 16:28:46 on Jun 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:28:46 on Jun 01,2023
+# vcom -reportprogress 300 -work work tp3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tp3
+# -- Compiling architecture tp3 of tp3
+# -- Loading entity compara_dado
+# ** Error: tp3.vhd(98): (vcom-1136) Unknown identifier "registrando_padroes".
+# ** Error: tp3.vhd(98): (vcom-1590) Bad expression in left operand of infix expression 'and'.
+# ** Error: tp3.vhd(98): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+# ** Error: tp3.vhd(100): (vcom-1136) Unknown identifier "registrando_padroes".
+# ** Error: tp3.vhd(100): (vcom-1590) Bad expression in left operand of infix expression 'and'.
+# ** Error: tp3.vhd(100): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+# ** Error: tp3.vhd(102): (vcom-1136) Unknown identifier "registrando_padroes".
+# ** Error: tp3.vhd(102): (vcom-1590) Bad expression in left operand of infix expression 'and'.
+# ** Error: tp3.vhd(102): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+# ** Error: tp3.vhd(104): (vcom-1136) Unknown identifier "registrando_padroes".
+# ** Error: tp3.vhd(104): (vcom-1590) Bad expression in left operand of infix expression 'and'.
+# ** Error: tp3.vhd(104): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+# ** Note: tp3.vhd(184): VHDL Compiler exiting
+# End time: 16:28:46 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 12, Warnings: 0
+# ** Error: /soft64/mentor/ferramentas/modelsim/2021/linux_x86_64/vcom failed.
+# Error in macro ./sim.do line 6
+# /soft64/mentor/ferramentas/modelsim/2021/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -work work tp3.vhd"
+do sim.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is lucas.damo@gaphs17.portoalegre.pucrsnet.br.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim SE-64 vmap 2021.3 Lib Mapping Utility 2021.07 Jul 13 2021
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:29:24 on Jun 01,2023
+# vcom -reportprogress 300 -work work comp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity compara_dado
+# -- Compiling architecture a1 of compara_dado
+# End time: 16:29:24 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:29:24 on Jun 01,2023
+# vcom -reportprogress 300 -work work tp3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tp3
+# -- Compiling architecture tp3 of tp3
+# -- Loading entity compara_dado
+# ** Error: tp3.vhd(98): (vcom-1136) Unknown identifier "registrando_padroes_0then".
+# ** Error: tp3.vhd(98): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: tp3.vhd(99): near "sel": (vcom-1576) expecting GENERATE or THEN or USE.
+# ** Error: tp3.vhd(107): near "if": (vcom-1576) expecting PROCESS.
+# ** Note: tp3.vhd(108): VHDL Compiler exiting
+# End time: 16:29:24 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: /soft64/mentor/ferramentas/modelsim/2021/linux_x86_64/vcom failed.
+# Error in macro ./sim.do line 6
+# /soft64/mentor/ferramentas/modelsim/2021/linux_x86_64/vcom failed.
+#     while executing
+# "vcom -work work tp3.vhd"
+do sim.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is lucas.damo@gaphs17.portoalegre.pucrsnet.br.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim SE-64 vmap 2021.3 Lib Mapping Utility 2021.07 Jul 13 2021
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:29:32 on Jun 01,2023
+# vcom -reportprogress 300 -work work comp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity compara_dado
+# -- Compiling architecture a1 of compara_dado
+# End time: 16:29:32 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:29:32 on Jun 01,2023
+# vcom -reportprogress 300 -work work tp3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tp3
+# -- Compiling architecture tp3 of tp3
+# -- Loading entity compara_dado
+# End time: 16:29:32 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:29:32 on Jun 01,2023
+# vcom -reportprogress 300 -work work tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tb
+# -- Compiling architecture tb of tb
+# -- Loading entity tp3
+# End time: 16:29:32 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 16:29:34 on Jun 01,2023, Elapsed time: 0:26:14
+# Errors: 3, Warnings: 3
+# vsim -voptargs="+acc=lprn" -t ns work.tb 
+# Start time: 16:29:34 on Jun 01,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tb(tb)#1
+# Loading work.tp3(tp3)#1
+# Loading work.compara_dado(a1)#1
+# ** Warning: (vsim-8683) Uninitialized out port /tb/DUT/dout has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb/DUT/alarme has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb/DUT/numero(1 downto 0) has no driver.
+# This port will contribute value (2'hX) to the signal network.
+# 1
+# 1
+add wave -position end  sim:/tb/DUT/compara_dado_0/clock
+add wave -position end  sim:/tb/DUT/compara_dado_0/reset
+add wave -position end  sim:/tb/DUT/compara_dado_0/dado
+add wave -position end  sim:/tb/DUT/compara_dado_0/pattern
+add wave -position end  sim:/tb/DUT/compara_dado_0/prog
+add wave -position end  sim:/tb/DUT/compara_dado_0/habilita
+add wave -position end  sim:/tb/DUT/compara_dado_0/match
+add wave -position end  sim:/tb/DUT/compara_dado_0/reg_padrao
+add wave -position end  sim:/tb/DUT/compara_dado_0/en
+add wave -position end  sim:/tb/DUT/compara_dado_0/comparador
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {/home/lucas.damo/Documents/FSD/tRAB-3/trab 3/traffic-filter/wave.do}
+do sim.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is lucas.damo@gaphs17.portoalegre.pucrsnet.br.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Model Technology ModelSim SE-64 vmap 2021.3 Lib Mapping Utility 2021.07 Jul 13 2021
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:31:04 on Jun 01,2023
+# vcom -reportprogress 300 -work work comp.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity compara_dado
+# -- Compiling architecture a1 of compara_dado
+# End time: 16:31:04 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:31:04 on Jun 01,2023
+# vcom -reportprogress 300 -work work tp3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tp3
+# -- Compiling architecture tp3 of tp3
+# -- Loading entity compara_dado
+# End time: 16:31:04 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:31:04 on Jun 01,2023
+# vcom -reportprogress 300 -work work tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity tb
+# -- Compiling architecture tb of tb
+# -- Loading entity tp3
+# End time: 16:31:04 on Jun 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 16:31:05 on Jun 01,2023, Elapsed time: 0:01:31
+# Errors: 0, Warnings: 3
+# vsim -voptargs="+acc=lprn" -t ns work.tb 
+# Start time: 16:31:05 on Jun 01,2023
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.tb(tb)#1
+# Loading work.tp3(tp3)#1
+# Loading work.compara_dado(a1)#1
+# ** Warning: (vsim-8683) Uninitialized out port /tb/DUT/dout has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb/DUT/alarme has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb/DUT/numero(1 downto 0) has no driver.
+# This port will contribute value (2'hX) to the signal network.
+# 1
+# 1

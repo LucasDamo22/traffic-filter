@@ -24,7 +24,18 @@ add wave -noupdate /tb/DUT/sel(3)
 add wave -noupdate -divider {test bench}
 add wave -noupdate -radix unsigned /tb/conta_tempo
 add wave -noupdate -divider program
-add wave -noupdate -expand /tb/DUT/program
+add wave -noupdate /tb/DUT/program
+add wave -noupdate -divider compara_0
+add wave -noupdate /tb/DUT/compara_dado_0/clock
+add wave -noupdate /tb/DUT/compara_dado_0/reset
+add wave -noupdate /tb/DUT/compara_dado_0/dado
+add wave -noupdate /tb/DUT/compara_dado_0/pattern
+add wave -noupdate /tb/DUT/compara_dado_0/prog
+add wave -noupdate /tb/DUT/compara_dado_0/habilita
+add wave -noupdate /tb/DUT/compara_dado_0/match
+add wave -noupdate /tb/DUT/compara_dado_0/reg_padrao
+add wave -noupdate /tb/DUT/compara_dado_0/en
+add wave -noupdate /tb/DUT/compara_dado_0/comparador
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {253 ns} 0}
 quietly wave cursor active 1
@@ -42,4 +53,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits us
 update
-WaveRestoreZoom {0 ns} {1662 ns}
+WaveRestoreZoom {116 ns} {1252 ns}
