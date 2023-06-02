@@ -20,21 +20,22 @@ signal reg_padrao: std_logic_vector(7 downto 0):=(others=>'0');
 signal comparador: std_logic:='0';
   
 begin
-    process(clock)
+    process(clock,reset)
       begin
         if reset = '1' then 
         reg_padrao <= (others=>'0');
+
         elsif rising_edge(clock) then
           if prog = '1' then
             reg_padrao <= pattern;
           end if;
-          if dado = reg_padrao then
-            comparador <='1'; else comparador <= '0';
-          end if;
+          
+
         end if;
     end process;
 
 match <= comparador and habilita;
+comparador <='1' when dado = reg_padrao else '0';
     
 
 end a1;

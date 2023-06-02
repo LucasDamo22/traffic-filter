@@ -4,8 +4,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
-use IEEE.numeric_std.all;
-
 
 --------------------------------------
 -- Entidade
@@ -119,18 +117,24 @@ begin
   end process;
   --  registrador para o alarme interno
 
+  -- MAQUINA DE ESTADOS (FSM)
+  FSM: process(clock)
+  begin
+    if rising_edge(clock) then
+      if reset = '1' then
+        EA <= resetting;
+      else
+      EA <= PE;
+      end if;
+    end if;
+  end process FSM;
+
   ------- MUDANÇAS DA FSM
   FSM_cases: process(prog, EA, alarme_int)
   begin
-    if reset = '1' then
-            PE <= resetting;
-  
-    elsif rising_edge(clock) then
-      
-
-        case EA is  
+    case EA is  
         when idle =>
-            if unsigned(prog) = 3 then
+            if prog = "101" then
                 PE <= buscando;
             elsif prog = "001" then
               PE <= registrando_padroes_0;
@@ -141,7 +145,7 @@ begin
             elsif prog = "100" then
               PE <= registrando_padroes_3;
             else
-                PE <= idle;
+                PE <= EA;
             end if;
 ---------------------------------------------------------------------            
         when registrando_padroes_0 =>
@@ -161,7 +165,8 @@ begin
               PE <= resetting;
             elsif alarme_int = '1' then
               PE <= blocked;
-            
+            else
+              PE <= EA;
             end if;
 ---------------------------------------------------------------------
         when blocked =>
@@ -169,20 +174,13 @@ begin
               PE <= buscando;
             elsif prog = "111" then
               PE <= resetting;
-            
+            else
+              PE <= EA;
             end if;
 --------------------------------------------------------------------
         when resetting =>
             PE <= idle;
-
-       end case;
-
-
-    
-      end if;
-     
-
-
+    end case;
   end process FSM_cases;
 --------------------------------------------------------------------
 
@@ -204,5 +202,5 @@ begin
   numero <= "00" when match(0)='1' else
             "01" when match(1)='1' else
             "10" when match(2)='1' else
-            "11" when match(3)='1';
+            "11";-- when match(3)='1';
 end architecture;
