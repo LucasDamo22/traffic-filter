@@ -40,6 +40,14 @@ architecture tp3 of tp3 is
 begin  
 
   -- REGISTRADOR DE DESLOCAMENTO QUE RECEBE O FLUXO DE ENTRADA
+  process(clock,reset) begin
+    if reset = '1' then
+    data<=(others=>'0');
+    elsif rising_edge(clock) then
+        data(7) <= din;
+        data(6 downto 0) <= data(7 downto 1);
+    end if;
+  end process;
 
   -- 4 PORT MAPS PARA OS ompara_dado  
     compara_dado_0: entity work.compara_dado
@@ -83,8 +91,9 @@ begin
       habilita=> sel(3),
       match   => match(3)
     );
-  -- found   <=  . . . 
-
+  --------------
+  found   <= '1' when match(0)='1' or match(1)='1' or match(2)='1' or match(3)='1' else '0';
+  --------------
   program(0) <= '1' when EA = registrando_padroes_0 else '0';
   program(1) <= '1' when EA = registrando_padroes_1 else '0';
   program(2) <= '1' when EA = registrando_padroes_2 else '0';
@@ -121,7 +130,7 @@ begin
   end process FSM;
 
   ------- MUDANÇAS DA FSM
-  FSM_cases: process(prog, EA)
+  FSM_cases: process(prog, EA, alarme_int)
   begin
     case EA is  
         when idle =>
@@ -154,7 +163,7 @@ begin
         when buscando =>
             if prog = "111" then
               PE <= resetting;
-            elsif found = '1' then
+            elsif alarme_int = '1' then
               PE <= blocked;
             else
               PE <= EA;
@@ -173,12 +182,25 @@ begin
             PE <= idle;
     end case;
   end process FSM_cases;
+--------------------------------------------------------------------
+
+  process(clock, reset) begin
+  if reset = '1' then
+    alarme_int <= '0';
+  elsif rising_edge(clock) then
+    if EA = buscando then
+      alarme_int <= found;
+    end if;
+  end if;
+  end process;
 
 
 
   -- SAIDAS
-  -- alarme <= . . . 
-  -- dout   <= . . . 
-  -- numero <=  . . . 
-
+  alarme <= alarme_int; 
+  dout   <= din and not(alarme_int);
+  numero <= "00" when match(0)='1' else
+            "01" when match(1)='1' else
+            "10" when match(2)='1' else
+            "11" when match(3)='1';
 end architecture;

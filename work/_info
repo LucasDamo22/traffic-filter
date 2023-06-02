@@ -36,135 +36,129 @@ n@_opt
 OL;O;2021.3;73
 R1
 Ecompara_dado
-Z2 w1685647969
+Z2 w1685672908
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 0
-R1
-Z5 8comp.vhd
-Z6 Fcomp.vhd
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dC:/Users/lucas/Documents/GitHub/traffic-filter
+Z6 8comp.vhd
+Z7 Fcomp.vhd
 l0
-L7 1
+L7
 VlZ410Lfi`=7_gT[j2KF3]1
 !s100 kzgUeZXJnURjFUfXa25[Z1
-Z7 OL;C;2021.3;73
+Z8 OV;C;10.5b;63
 32
-Z8 !s110 1685648514
+Z9 !s110 1685684914
 !i10b 1
-Z9 !s108 1685648514.000000
-Z10 !s90 -reportprogress|300|-work|work|comp.vhd|
-Z11 !s107 comp.vhd|
-!i113 0
-Z12 o-work work
-Z13 tExplicit 1 CvgOpt 0
+Z10 !s108 1685684914.000000
+Z11 !s90 -reportprogress|300|-work|work|comp.vhd|
+Z12 !s107 comp.vhd|
+!i113 1
+Z13 o-work work
+Z14 tExplicit 1 CvgOpt 0
 Aa1
 R3
 R4
-Z14 DEx4 work 12 compara_dado 0 22 lZ410Lfi`=7_gT[j2KF3]1
-!i122 0
+Z15 DEx4 work 12 compara_dado 0 22 lZ410Lfi`=7_gT[j2KF3]1
 l22
-L18 23
+L18
 VQ]hgKn:;9Nn3R3m4KJNbZ1
 !s100 BZ`55iVm_:X9ReVTF<WK]0
-R7
-32
 R8
-!i10b 1
+32
 R9
+!i10b 1
 R10
 R11
-!i113 0
 R12
+!i113 1
 R13
+R14
 Etb
-Z15 w1685631645
+R2
 Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R3
 R4
-!i122 2
-R1
+R5
 Z18 8tb.vhd
 Z19 Ftb.vhd
 l0
-Z20 L11 1
+L11
 V4BFD_YKP6]OHT>2ZY]Dlh2
 !s100 W1g`oD=blkeQ9RDk4=ZDl3
-R7
+R8
 32
-Z21 !s110 1685648515
+R9
 !i10b 1
-Z22 !s108 1685648515.000000
-Z23 !s90 -reportprogress|300|-work|work|tb.vhd|
-!s107 tb.vhd|
-!i113 0
-R12
+R10
+Z20 !s90 -reportprogress|300|-work|work|tb.vhd|
+Z21 !s107 tb.vhd|
+!i113 1
 R13
+R14
 Atb
-Z24 DEx4 work 3 tp3 0 22 <9^>MRGFgoDR12g`FANJN1
+Z22 DEx4 work 3 tp3 0 22 <9^>MRGFgoDR12g`FANJN1
 R16
 R17
 R3
 R4
 DEx4 work 2 tb 0 22 4BFD_YKP6]OHT>2ZY]Dlh2
-!i122 2
 l53
-L17 82
+L17
 Vj:WVQ<?MP^c3B8mU<RV_n3
 !s100 UZbQ1li15VZ9N:8EE8lEO1
-R7
+R8
 32
-R21
+R9
 !i10b 1
-R22
-R23
-Z25 !s107 tb.vhd|
-!i113 0
-R12
+R10
+R20
+R21
+!i113 1
 R13
+R14
 Etp3
-Z26 w1685647771
+Z23 w1685684911
 R16
 R17
 R3
 R4
-!i122 1
-R1
-Z27 8tp3.vhd
-Z28 Ftp3.vhd
+R5
+Z24 8tp3.vhd
+Z25 Ftp3.vhd
 l0
-R20
+L11
 V<9^>MRGFgoDR12g`FANJN1
 !s100 L299Omj3kC`8Gmh?Z@kVd1
-R7
+R8
 32
-R21
-!i10b 1
 R9
-Z29 !s90 -reportprogress|300|-work|work|tp3.vhd|
-Z30 !s107 tp3.vhd|
-!i113 0
-R12
+!i10b 1
+R10
+Z26 !s90 -reportprogress|300|-work|work|tp3.vhd|
+Z27 !s107 tp3.vhd|
+!i113 1
 R13
-Atp3
 R14
+Atp3
+R15
 R16
 R17
 R3
 R4
-R24
-!i122 1
+R22
 l40
-L28 157
-VgYIE[iLQY0^l4HnEAljaU1
-!s100 cRZ84J3zVc_^2Q84F0]m21
-R7
+L28
+VD>Uo_bHY`lP@hVe7T?dH71
+!s100 0zQe_kf1eda`]4RHbC=Wf3
+R8
 32
-R21
-!i10b 1
 R9
-R29
-R30
-!i113 0
-R12
+!i10b 1
+R10
+R26
+R27
+!i113 1
 R13
+R14
