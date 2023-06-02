@@ -5,6 +5,37 @@ Z0 !s99 nomlopt
 R0
 R0
 R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
 !s11e vcom 2021.3 2021.07, Jul 13 2021
 13
 !s112 1.1
@@ -13,15 +44,15 @@ R0
 !i10f 100
 cModel Technology
 Z1 d/home/lucas.damo/Documents/FSD/tRAB-3/MaterialApoio
-T_opt
-!s110 1685708234
-VCmKXK0X?VcXe25g]GL<:Q2
-04 2 2 work tb tb 1
-=1-0023aeb80a01-6479ddca-6eac8-65a0
+T_opt1
+!s110 1685733026
+V][WQa6=@f<IY=9=c=:5U;3
+04 8 2 work tb_lucas tb 1
+=1-0023aeb80a01-647a3ea1-c0f1f-1c2
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc=lprn
 tCvgOpt 0
-n@_opt
+n@_opt1
 OL;O;2021.3;73
 Ecompara_dado
 Z2 w1685708055
@@ -37,9 +68,9 @@ VlZ410Lfi`=7_gT[j2KF3]1
 !s100 kzgUeZXJnURjFUfXa25[Z1
 Z7 OL;C;2021.3;73
 32
-Z8 !s110 1685708233
+Z8 !s110 1685733024
 !i10b 1
-Z9 !s108 1685708232.000000
+Z9 !s108 1685733024.000000
 Z10 !s90 -reportprogress|300|-work|work|comp.vhd|
 Z11 !s107 comp.vhd|
 !i113 0
@@ -64,73 +95,73 @@ R11
 !i113 0
 R12
 R13
-Etb
-Z15 w1684351206
+Etb_lucas
+Z15 w1685733022
 Z16 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z17 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 R3
 R4
 !i122 2
 R1
-Z18 8tb.vhd
-Z19 Ftb.vhd
+Z18 8tb_lucas.vhd
+Z19 Ftb_lucas.vhd
 l0
-Z20 L11 1
-V4BFD_YKP6]OHT>2ZY]Dlh2
-!s100 W1g`oD=blkeQ9RDk4=ZDl3
+L13 1
+VLD61XE6D2I1]2i7m3^:oj1
+!s100 Pe6kecXamnhSV01z[[N]@3
 R7
 32
 R8
 !i10b 1
-Z21 !s108 1685708233.000000
-Z22 !s90 -reportprogress|300|-work|work|tb.vhd|
-Z23 !s107 tb.vhd|
+R9
+Z20 !s90 -reportprogress|300|-work|work|tb_lucas.vhd|
+Z21 !s107 tb_lucas.vhd|
 !i113 0
 R12
 R13
 Atb
-Z24 DEx4 work 3 tp3 0 22 <9^>MRGFgoDR12g`FANJN1
+Z22 DEx4 work 3 tp3 0 22 <9^>MRGFgoDR12g`FANJN1
 R16
 R17
 R3
 R4
-DEx4 work 2 tb 0 22 4BFD_YKP6]OHT>2ZY]Dlh2
+DEx4 work 8 tb_lucas 0 22 LD61XE6D2I1]2i7m3^:oj1
 !i122 2
-l53
-L17 82
-Vj:WVQ<?MP^c3B8mU<RV_n3
-!s100 UZbQ1li15VZ9N:8EE8lEO1
+l55
+L19 82
+V[USfP8MgeiC0lFoj:H?;V0
+!s100 JJ3=eLPl8T>T^`NJiiZo^0
 R7
 32
 R8
 !i10b 1
+R9
+R20
 R21
-R22
-R23
 !i113 0
 R12
 R13
 Etp3
-Z25 w1685708212
+Z23 w1685730545
 R16
 R17
 R3
 R4
 !i122 1
 R1
-Z26 8tp3.vhd
-Z27 Ftp3.vhd
+Z24 8tp3.vhd
+Z25 Ftp3.vhd
 l0
-R20
+L11 1
 V<9^>MRGFgoDR12g`FANJN1
 !s100 L299Omj3kC`8Gmh?Z@kVd1
 R7
 32
 R8
 !i10b 1
-R21
-Z28 !s90 -reportprogress|300|-work|work|tp3.vhd|
-Z29 !s107 tp3.vhd|
+R9
+Z26 !s90 -reportprogress|300|-work|work|tp3.vhd|
+Z27 !s107 tp3.vhd|
 !i113 0
 R12
 R13
@@ -140,19 +171,19 @@ R16
 R17
 R3
 R4
-R24
+R22
 !i122 1
-l40
-L28 179
-VF`PdlK8iI^5TFbB1SVF5k3
-!s100 @1g_4MB?IDSbaChECFe<03
+l41
+L28 190
+VLM67:0io89e15MN[TU@OJ2
+!s100 0?>fA@gflRjbHEgThl29h2
 R7
 32
 R8
 !i10b 1
-R21
-R28
-R29
+R9
+R26
+R27
 !i113 0
 R12
 R13

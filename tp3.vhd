@@ -33,6 +33,7 @@ architecture tp3 of tp3 is
   signal numero_int:std_logic_vector(3 downto 0);
   signal program:std_logic_vector(3 downto 0);
   signal match:std_logic_vector(3 downto 0);
+  signal alarme_en: std_logic:='0';
   
   signal sel:std_logic_vector(3 downto 0):=(others=>'0');
   
@@ -102,7 +103,7 @@ begin
   --  registradores para ativar as comparações
   process(clock, reset, EA) begin
     if reset = '1' then
-      sel(0)<= '0';
+      sel<= (others=>'0');
     elsif rising_edge(clock) then
       if EA = registrando_padroes_0 then
         sel(0)<='1';
@@ -118,7 +119,7 @@ begin
   --  registrador para o alarme interno
 
   -- MAQUINA DE ESTADOS (FSM)
-  FSM: process(clock)
+  FSM: process(clock,reset)
   begin
     if rising_edge(clock) then
       if reset = '1' then
@@ -130,7 +131,7 @@ begin
   end process FSM;
 
   ------- MUDANÇAS DA FSM
-  FSM_cases: process(prog, EA, alarme_int)
+  FSM_cases: process(prog, EA, found)
   begin
     case EA is  
         when idle =>
@@ -149,7 +150,7 @@ begin
             end if;
 ---------------------------------------------------------------------            
         when registrando_padroes_0 =>
-            PE <=idle;
+        PE <=idle;
 ---------------------------------------------------------------------
         when registrando_padroes_1 =>
         PE <=idle;
@@ -163,7 +164,8 @@ begin
         when buscando =>
             if prog = "111" then
               PE <= resetting;
-            elsif alarme_int = '1' then
+            elsif found = '1' then
+              
               PE <= blocked;
             else
               PE <= EA;
@@ -171,6 +173,7 @@ begin
 ---------------------------------------------------------------------
         when blocked =>
             if prog = "110" then
+              
               PE <= buscando;
             elsif prog = "111" then
               PE <= resetting;
@@ -184,17 +187,25 @@ begin
   end process FSM_cases;
 --------------------------------------------------------------------
 
-  process(clock, reset) begin
+  process(clock, reset, prog) begin
   if reset = '1' then
     alarme_int <= '0';
   elsif rising_edge(clock) then
-    if EA = buscando then
-      alarme_int <= found;
+    if alarme_en ='1' then
+      
+        alarme_int <= found;
+    elsif EA = resetting then
+      alarme_int <= '0';
+    
+      
+      -- elsif found = '0' then
+      --    alarme_int <= '0';
+      
     end if;
   end if;
   end process;
 
-
+alarme_en <= '1' when EA = buscando else '0';
 
   -- SAIDAS
   alarme <= alarme_int; 
@@ -202,5 +213,5 @@ begin
   numero <= "00" when match(0)='1' else
             "01" when match(1)='1' else
             "10" when match(2)='1' else
-            "11";-- when match(3)='1';
+            "11" when match(3)='1';
 end architecture;
