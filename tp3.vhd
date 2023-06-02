@@ -17,9 +17,10 @@ entity tp3 is
         padrao  : in std_logic_vector(7 downto 0);
         prog    : in std_logic_vector(2 downto 0);
 
-        dout    : out std_logic; 
-        alarme  : out std_logic;
+        dout    :out std_logic;
+        alarme  :out std_logic;
         numero  : out std_logic_vector(1 downto 0)
+
         );
 end entity; 
 
@@ -27,32 +28,99 @@ end entity;
 -- Arquitetura
 --------------------------------------
 architecture tp3 of tp3 is
-  type state is (idle, registrando_padroes, buscando, blocked, resetting);
+  type state is (idle, registrando_padroes_0,registrando_padroes_1,registrando_padroes_2,registrando_padroes_3, buscando, blocked, resetting);
   signal EA, PE: state;
-  signal match_0,match_1,match_2,match_3, alarme_int, found: std_logic;
+  signal alarme_int, found: std_logic;
+  signal data: std_logic_vector(7 downto 0);
   signal numero_int:std_logic_vector(3 downto 0);
-
+  signal program:std_logic_vector(3 downto 0);
+  signal match:std_logic_vector(3 downto 0);
   
+  signal sel:std_logic_vector(3 downto 0):=(others=>'0');
   
+ 
 begin  
 
   -- REGISTRADOR DE DESLOCAMENTO QUE RECEBE O FLUXO DE ENTRADA
+  process(clock,reset) begin
+    if reset = '1' then
+    data<=(others=>'0');
+    elsif rising_edge(clock) then
+        data(7) <= din;
+        data(6 downto 0) <= data(7 downto 1);
+    end if;
+  end process;
 
   -- 4 PORT MAPS PARA OS ompara_dado  
+    compara_dado_0: entity work.compara_dado
+    port map(
+      clock   => clock,
+      reset   => reset,
+      dado    => data,
+      pattern => padrao,
+      prog    => program(0),
+      habilita=> sel(0),
+      match   => match(0)
+    );
 
-  -- found   <=  . . . 
-
-  -- program(0) <= . . .
-  -- program(1) <= . . .
-  -- program(2) <= . . .
-  -- program(3) <= . . .
+    compara_dado_1: entity work.compara_dado
+    port map(
+      clock   => clock,
+      reset   => reset,
+      dado    => data,
+      pattern => padrao,
+      prog    => program(1),
+      habilita=> sel(1),
+      match   => match(1)
+    );
+    compara_dado_2: entity work.compara_dado
+    port map(
+      clock   => clock,
+      reset   => reset,
+      dado    => data,
+      pattern => padrao,
+      prog    => program(2),
+      habilita=> sel(2),
+      match   => match(2)
+    );
+    compara_dado_3: entity work.compara_dado
+    port map(
+      clock   => clock,
+      reset   => reset,
+      dado    => data,
+      pattern => padrao,
+      prog    => program(3),
+      habilita=> sel(3),
+      match   => match(3)
+    );
+  --------------
+  found   <= '1' when match(0)='1' or match(1)='1' or match(2)='1' or match(3)='1' else '0';
+  --------------
+  program(0) <= '1' when EA = registrando_padroes_0 else '0';
+  program(1) <= '1' when EA = registrando_padroes_1 else '0';
+  program(2) <= '1' when EA = registrando_padroes_2 else '0';
+  program(3) <= '1' when EA = registrando_padroes_3 else '0';
   
   --  registradores para ativar as comparações
-
+  process(clock, reset, EA) begin
+    if reset = '1' then
+      sel(0)<= '0';
+    elsif rising_edge(clock) then
+      if EA = registrando_padroes_0 then
+        sel(0)<='1';
+      elsif EA = registrando_padroes_1  then
+        sel(1)<='1';
+      elsif EA = registrando_padroes_2 then
+       sel(2)<='1';
+      elsif EA = registrando_padroes_3 then
+       sel(3)<='1';
+      end if;
+    end if;
+  end process;
   --  registrador para o alarme interno
 
   ------- MUDANÇAS DA FSM
-  FSM_cases: process(clock, reset)
+  FSM_cases: process(prog, EA, alarme_int)
   begin
     if reset = '1' then
             PE <= resetting;
@@ -64,23 +132,38 @@ begin
         when idle =>
             if unsigned(prog) = 3 then
                 PE <= buscando;
-            elsif unsigned(prog) >= 1 and unsigned(prog) <= 5 then
-                PE <= registrando_padroes;
+            elsif prog = "001" then
+              PE <= registrando_padroes_0;
+            elsif prog = "010" then
+              PE <= registrando_padroes_1;
+            elsif prog = "011" then
+              PE <= registrando_padroes_2;
+            elsif prog = "100" then
+              PE <= registrando_padroes_3;
             else
                 PE <= idle;
             end if;
-  ---------------------------------------------------------------------            
-        when registrando_padroes =>
+---------------------------------------------------------------------            
+        when registrando_padroes_0 =>
             PE <=idle;
-  ---------------------------------------------------------------------
+---------------------------------------------------------------------
+        when registrando_padroes_1 =>
+        PE <=idle;
+---------------------------------------------------------------------
+        when registrando_padroes_2 =>
+        PE <=idle;
+---------------------------------------------------------------------
+        when registrando_padroes_3 =>
+        PE <=idle;
+---------------------------------------------------------------------
         when buscando =>
             if prog = "111" then
               PE <= resetting;
-            elsif found = '1' then
+            elsif alarme_int = '1' then
               PE <= blocked;
             
             end if;
-  ---------------------------------------------------------------------
+---------------------------------------------------------------------
         when blocked =>
             if prog = "110" then
               PE <= buscando;
@@ -88,7 +171,7 @@ begin
               PE <= resetting;
             
             end if;
-  --------------------------------------------------------------------
+--------------------------------------------------------------------
         when resetting =>
             PE <= idle;
 
@@ -101,19 +184,25 @@ begin
 
 
   end process FSM_cases;
+--------------------------------------------------------------------
 
-process(clock,reset)
-begin
+  process(clock, reset) begin
   if reset = '1' then
-    EA <= resetting;
+    alarme_int <= '0';
   elsif rising_edge(clock) then
-  EA <= PE;
+    if EA = buscando then
+      alarme_int <= found;
+    end if;
   end if;
-end process;
+  end process;
+
+
 
   -- SAIDAS
-  -- alarme <= . . . 
-  -- dout   <= . . . 
-  -- numero <=  . . . 
-
+  alarme <= alarme_int; 
+  dout   <= din and not(alarme_int);
+  numero <= "00" when match(0)='1' else
+            "01" when match(1)='1' else
+            "10" when match(2)='1' else
+            "11" when match(3)='1';
 end architecture;
