@@ -113,6 +113,8 @@ begin
        sel(2)<='1';
       elsif EA = registrando_padroes_3 then
        sel(3)<='1';
+      elsif EA = resetting then
+       sel <= (others=>'0');
       end if;
     end if;
   end process;
@@ -206,6 +208,7 @@ begin
   end process;
 
 alarme_en <= '1' when EA = buscando else '0';
+--sel <= (others=>'0') when EA = resetting;
 
   -- SAIDAS
   alarme <= alarme_int; 

@@ -25,17 +25,22 @@ architecture tb of tb_lucas is
   end record;
 
   type padroes is array(natural range <>) of test_record;
-   constant padrao_de_teste : padroes := (
+   constant padrao_de_teste : padroes :=(
     (t =>   4, prog => "001", padrao => x"24"),   
     (t =>  10, prog => "010", padrao => x"B8"),
-    (t =>  15, prog => "011", padrao => x"80"),
+    (t =>  15, prog => "011", padrao => x"D4"),
     (t =>  20, prog => "100", padrao => x"65"),    
     (t =>  35, prog => "101", padrao => x"FF"),    -- ATIVA A COMPARAÇÃO (5)
     (t =>  55, prog => "110", padrao => x"FF"),    -- reinicia a comparação (6)
     (t =>  70, prog => "110", padrao => x"FF"),    -- reinicia a comparação (6)
-    (t => 105, prog => "111", padrao => x"FF")     -- reinicializa (7)
-  );
-
+    (t => 105, prog => "111", padrao => x"FF"),     -- reinicializa (7)
+    (t =>  110, prog => "001", padrao => x"D5"), 
+    (t =>  120, prog => "010", padrao => x"D4"),
+    (t =>  125, prog => "011", padrao => x"46"),
+    (t =>  130, prog => "101", padrao => x"FF"),
+    (t =>  160, prog => "110", padrao => x"FF"),
+    (t =>  180, prog => "111", padrao => x"FF")
+   );
 
   -- LFSR: ----------------------------------------------- x^19+x^18+x^17+x^14+xˆ9+1
   constant GP : integer := 19 ;
